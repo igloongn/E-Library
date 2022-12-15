@@ -6,24 +6,11 @@
 
 ?>
 <html lang="en">
-    <!-- <head>
-        <meta charset="UTF-8">
-        <title>Index</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="keywords" content="">
-        <link rel="icon" href="assets/img/favicon.png">
-        <link rel="stylesheet" type="text/css" href="assets/css/button.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        
-    </head> -->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Index</title>
-        <!-- <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/flatly/bootstrap.min.css"> -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/button.min.css">
@@ -42,7 +29,7 @@
                     $word = 'Materials';
                     $notword = 'Past Questions';
                     $notwordID = '2';
-                    $icon = 'fa-solid fa-pen';
+                    $icon = 'fa fa-pen';
                 }
                 if ($_GET['paper'] == 2) {
                     $wordID = $_GET['paper'];
@@ -67,12 +54,12 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-7 col-md-7">
                                     <div class="banner-text wow fadeInLeft" data-wow-duration="1000ms">
-                                        <h2>The Better Way to get
+                                        <h2>The Better Way to get your
                                             <span><?php echo $word;?></span>
                                         </h2>
-                                        <p>Mauris malesuada enim eget blandit gravida. Duis hendrerit cursus turpis, id mollis est rutrum nec. Sed interdum nisi id libero tincidunt, sit amet vestibulum tortor porttitor. Cras ligula lacus, ullamcorper sed</p>
-                                        <form class="search-form">
-                                            <input type="text" name="search" placeholder="Search Files">
+                                        <p>We provide you Materials, Articles and Past questions all in one place, at all times. Put in request for books you need, upload yours and so much more.</p>
+                                        <form class="search-form" method="post" action="search.php?paper=<?php echo $_GET['paper']; ?>">
+                                            <input type="text" name="searchWord" placeholder="Search Files">
                                             <button>
                                                 <i class="fa fa-search"></i>
                                             </button>
@@ -96,44 +83,44 @@
                 <section class="about-us-section">
                     <div class="container">
                         <div class="section-title text-center">
-                            <h2>Welcome to
-                                <span><?php echo $word; ?></span>
+                            <h2>Discover with 
+                                <span>Yohas</span>
                             </h2>
-                            <p>Nunc consectetur ex nunc, id porttitor leo semper eget. Vivamus interdum, mauris quis cursus sodales, urn</p>
+                            <p>Explore thousands of materials, hand-outs, textbooks and more, all in one platform.
                         </div>
                         <!--section-title end-->
                         <div class="about-sec">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <div class="abt-col wow fadeInUp" data-wow-duration="1000ms">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="abt-col">
                                             <img src="assets/img/icon5.png" alt="">
-                                            <h3>Update to date Questions</h3>
-                                            <p>Vivamus interdum, mauris interdum quis curdum sodales</p>
+                                            <h3>Class notes</h3>
+                                            <p>Everything from hand-written class notes of the best scholars, to their solved assignments.</p>
                                         </div>
                                         <!--abt-col end-->
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="abt-col">
                                             <img src="assets/img/icon7.png" alt="">
-                                            <h3>Update to date Answers</h3>
-                                            <p>Pelleneget tespharetra que fringilla egugue id eget pharetra</p>
+                                            <h3>Materials</h3>
+                                            <p>Textbooks, slides, handouts and more…</p>
                                         </div>
                                         <!--abt-col end-->
                                     </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
-                                            <img src="assets/img/icon8.png" alt="">
-                                            <h3>Reliable Source</h3>
-                                            <p>Etiam risus neque, volutpat vel laoreet a, finibus volutpat non</p>
-                                        </div>
-                                        <!--abt-col end-->
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                        <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="abt-col">
                                             <img src="assets/img/icon9.png" alt="">
-                                            <h3>Student Support Service</h3>
-                                            <p>Mauris nec mi fequis ugiat, cursus tortor nec, pharetra tellus</p>
+                                            <h3>Past questions and answers</h3>
+                                            <p>Exams and test questions and answers solved.</p>
+                                        </div>
+                                        <!--abt-col end-->
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="abt-col">
+                                            <img src="assets/img/icon8.png" alt="">
+                                            <h3>Tutorials</h3>
+                                            <p>Meet scholars who can teach you that seemingly difficult course.</p>
                                         </div>
                                         <!--abt-col end-->
                                     </div>
@@ -153,12 +140,7 @@
                         <div class="classes-sec">
                             <div class="row classes-carousel">
                                 <?php 
-                                    // if ($_GET['paper'] == 1) {
-                                    //     $query = "SELECT * FROM `questions` where paperID = 1 ORDER BY id desc limit 0,8";
-                                    // } else if ($_GET['paper'] == 2) {
-                                    //     $query = "SELECT * FROM `questions` where paperID = 2 ORDER BY id desc limit 0,8";
-                                    // } 
-                                    $query = "SELECT * FROM `questions` where paperID = '$wordID' ORDER BY id desc limit 0,4";
+                                    $query = "SELECT * FROM `questions` where paperID = '$wordID' and posted_by='Admin' ORDER BY id desc limit 0,4";
                                     $result = mysqli_query($conn, $query);
                                     if (!$result) {
                                         die("Error in Query<br>".mysqli_error($conn));
@@ -241,11 +223,11 @@
                 <section class="course-section">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="find-course">
                                     <div class="sec-title">
                                         <h2>Find Your Department</h2>
-                                        <p>ullam fringilla ipsum sed enim scelerisque, ac porttitor libero egestas. Donec iaculis nisi eget bibendum efficitur. Lorem ipsum dolor sit</p>
+                                        <p>We have a variety of Departments</p>
                                     </div>
                                     <!--sec-title end-->
                                     <div class="course-img">
@@ -255,10 +237,12 @@
                                 </div>
                                 <!--find-course end-->
                             </div>
-                            <div class="col-lg-6">
+                            
+                            <!-- List of Departments -->
+                            <div class="col-lg-12">
                                 <div class="courses-list">
                                     <?php 
-                                        $deptquery = "SELECT * FROM `dept` ORDER BY id desc";
+                                        $deptquery = "SELECT * FROM `dept` ORDER BY id desc LIMIT 4, 4";
                                         $deptresult = mysqli_query($conn, $deptquery);
                                         if (!$deptresult) {
                                             die("Error in Query<br>".mysqli_error($conn));
@@ -285,7 +269,7 @@
                                                 <a href="#" title="">Posted by Admin</a>
                                             </div>
                                             <span class="locat">
-                                                Count of PDF
+                                                <!-- Count of PDF -->
                                             </span>
                                         </div>
                                     </div>
@@ -294,6 +278,9 @@
                                     ?>
                                 </div>
                             </div>
+                            <button class="btn">
+                                <h2>Show All</h2>
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -302,7 +289,7 @@
                     <div class="container">
                         <div class="section-title text-center">
                             <h2>Recent News</h2>
-                            <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet erat ornare sit amet. Nulla sagittis faucibus lacusMorbi lorem sem, aliquet</p>
+                            <p>Get up to speed with the latest academic updates and info in the University of Benin</p>
                         </div>
                         <!--section-title end-->
                         <div class="blog-posts">

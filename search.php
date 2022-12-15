@@ -7,7 +7,7 @@
     <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <title><?php echo 'Files' ?></title>
+            <title>Search Results</title>
             <meta name="viewport" content="width=device-width,initial-scale=1">
             <meta name="description" content="CSC">
             <meta name="author" content="Kadu">
@@ -45,7 +45,7 @@
             ?>
             <?php 
                 include 'include/header.php';
-                banner( $word , 'Questions', $_GET['paper'])
+                banner( $word , 'Search Results', $_GET['paper'])
             ?>
                 <div class="container-wide">
                     <section class="page-content">
@@ -54,18 +54,19 @@
                                 <div class="courses-list">
                                     <div class="row">
                                         <?php 
-                                            $facultyID = $_GET['faculty'];
-                                            $levelID = $_GET['level'];
-                                            $departmentID = $_GET['dept'];
+                                            $searchWord = $_POST['searchWord'];
                                             $paperID = $_GET['paper'];
-                                            $count_query = mysqli_query($conn, "SELECT count(*) from questions where facultyID = '$facultyID' and departmentID = '$departmentID' and levelID = '$levelID' and paperID = '$paperID'");
+                                            $count_query = mysqli_query($conn, "SELECT count(*) from questions WHERE course_name LIKE '%".$searchWord."%'");
                                             $row = mysqli_fetch_array($count_query);
                                             $total = $row[0];
                                             // echo $total;
                                             echo '<br>';
                                             // echo $total;
                                             if ($total > 0) {
-                                                $query ="SELECT * FROM `questions` where facultyID = '$facultyID' and departmentID = '$departmentID' and levelID = '$levelID' and paperID = '$paperID' ORDER BY id desc";
+                                                // $query ="SELECT * FROM `questions` where facultyID = '$facultyID' and departmentID = '$departmentID' and levelID = '$levelID' and paperID = '$paperID' ORDER BY id desc";
+
+                                                $query = "SELECT * FROM `questions` WHERE course_name LIKE '%".$searchWord."%'";
+
                                                 $result = mysqli_query($conn, $query);
                                                 // print_r($result);
                                                 if (!$result) {
@@ -139,7 +140,7 @@
                                                             ?>
                                                         </span>
                                                         <span> 
-                                                            <a href="<?php echo $video_url; ?>">Video Link</a>
+                                                            <?php echo $word; ?>
                                                         </span>
                                                     </div>
                                                     <span class="locat">
@@ -225,3 +226,4 @@
     //     header("Location: index.php?msg='Page Does Not Exist'");
     // }
     ?>
+

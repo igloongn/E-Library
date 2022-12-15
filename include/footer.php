@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget widget-about">
-                        <img src="assets/img/logo.png" alt="">
-                        <p>Vivamus porta efficitur nibh nec convallis. Vestibulum egestas eleifend justo. Ut tellus ipsum, accumsan</p>
+                        <img src="assets/img/logo-uniben-2-2.png" width="320" alt="">
+                        <p>This is an E-Library created by a student of the university of Benin for his final year project</p>
                     </div>
                     <!--widget-about end-->
                 </div>
@@ -75,32 +75,5 @@
             </div>
         </div>
         <!--top-footer end-->
-        <div class="bottom-footer">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <p>© Copyrights 2020 Shelly All rights reserved</p>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <ul class="social-links">
-                        <li>
-                            <a href="#" title="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--bottom-footer end-->
     </div>
 </footer>

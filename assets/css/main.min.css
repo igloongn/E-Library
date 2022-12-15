@@ -7234,7 +7234,7 @@ button.bg-danger:hover {
 }
 
 .bg-light {
-    background-color: #f8f9fa !important
+    background-color: #b4b4b4 !important
 }
 
 a.bg-light:focus,
@@ -20175,7 +20175,7 @@ header .navigation-bar nav ul ul ul {
 }
 
 .course-section .courses-list .course-card:nth-child(2) {
-    left: -100px
+    /* left: -100px */
 }
 
 .course-section .courses-list .course-card:before {
@@ -24019,3 +24019,22 @@ li:hover {
 .dropdown-menur>li:hover>.dropdown-submenur {
     display: block;
 }
+
+.delete-button-student {
+    background-color: #dc3545;
+    margin: 0 !important;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px !important;
+    color: #fff !important; 
+  }
+
+.delete-button-student:hover {
+    background-color: #dc3545;
+    margin: 0 !important;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 12px !important;
+    color: #fff !important; 
+  }
+

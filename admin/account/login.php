@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <?php 
+    session_start();
     include '../../backend/db.php';
+    // print_r($_SESSION)
 
 ?>
 <html lang="en-US">
@@ -82,8 +84,9 @@
             <div class="">
                 <?php 
                     if (!isset($_GET['paper'])) {
-                            header("location:index.php?paper=1");
+                            header("location:login.php?paper=1");
                         }
+
                     if ($_GET['paper'] == 1 or $_GET['paper'] == 2 ) {
                         if ($_GET['paper'] == 1) {
                             $wordID = $_GET['paper'];
@@ -98,9 +101,9 @@
                             $notwordID = '1';
                         }
                     } else{
-                        header("location:index.php?paper=1&msg=sorry that page does not exist");
+                        header("location:login.php?paper=1&msg=sorry that page does not exist");
                     }
-                
+
                 ?>
                 <!-- <div id="header" style="background-color: aliceblue;"> -->
                 <?php 
@@ -113,17 +116,27 @@
                         <main class="content d-flex p-0">
                             <div class="container d-flex flex-column">
                                 <div class="row h-100">
-                                    <div class="col-sm-10 col-md-12 col-lg-12 mx-auto d-table h-100">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-table h-100">
                                         <div class="d-table-cell align-middle">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="m-sm-4">
-                                                        <form action="backend_login.php" method="POST">
+
+                                                        <?php 
+                                                            if (isset($_GET["msg"])) {
+
+                                                            echo '<div class="alert alert-warning" role="alert">';
+                                                                echo $_GET["msg"];
+                                                                echo '</div>';
+                                                            }
+                                                        ?>
+
+                                                        <form action="backend_login.php" method="POST" class="mt-5">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Email</label>
                                                                 <input
                                                                     class="form-control form-control-lg"
-                                                                    type=""
+                                                                    type="email"
                                                                     name="email"
                                                                     placeholder="Enter your email"
                                                                 >
@@ -137,12 +150,23 @@
                                                                     placeholder="Enter your password"
                                                                 >
                                                             </div>
-                                                            <div class="text-center mt-3">
-                                                                <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+                                                            <div class="mb-3">
+                                                                <input
+                                                                    style="display: none;"
+                                                                    readonly
+                                                                    class="form-control form-control-lg"
+                                                                    type="text"
+                                                                    name="paper"
+                                                                    placeholder="Enter your number just for something"
+                                                                    value="<?php echo $_GET['paper']; ?>"
+                                                                >
                                                             </div>
-                                                            <p class="text-center mt-4">Don't have account?
-                                                                <a href="register.php">Sign up</a>
-                                                            </p>
+                                                            <div class="text-center mt-3">
+                                                                <button type="submit" class="btn btn-lg btn-primary">Login</button>
+                                                            </div>
+                                                            <!-- <p class="text-center mt-4">Don't have account?
+                                                                <a href="register.php?paper=<?php echo $_GET['paper']; ?>">Sign up</a>
+                                                            </p> -->
                                                             <br>
                                                             <br>
                                                         </form>
@@ -160,57 +184,6 @@
             </div>
         </div>
         <all>
-            <!-- <script type="text/javascript" src="../assets/js/jquery-1.12.3.min.js"></script>
-            <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="../assets/js/jquery.fancybox.js"></script>
-            <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
-            <script type="text/javascript" src="../assets/js/owl.carousel.js"></script>
-            <script type="text/javascript" src="../assets/js/theme.js"></script>
-
-
-            <script type="text/javascript" src="../myadmin/js/jquery-3.5.1.min.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/pwa.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/bootstrap/bootstrap.bundle.min.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/feather/feather.min.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/lazysizes.min.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/slick/slick.js"></script>
-            <script type="text/javascript" src="../myadmin/js/slick/slick-animation.min.js"></script>
-            <script type="text/javascript" src="../myadmin/js/slick/custom_slick.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/filter.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/bootstrap/bootstrap-notify.min.js"></script>
-
-            <script type="text/javascript" src="../myadmin/js/theme-setting.js"></script>
-            <script type="text/javascript" src="../myadmin/js/script.js"></script>
-            <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-
-            <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-            <script src="assets/js/bundle.min.js"></script>
-            <script src="assets/js/contactEmail.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-
-            <script>
-                function Ham() {
-                    var x = document.getElementById("myLinks");
-                    if (x.style.display === "block") {
-                    x.style.display = "none";
-                    } else {
-                    x.style.display = "block";
-                    }
-                }
-            </script> -->
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
-            </script> -->
-
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
             </script>

@@ -6,11 +6,11 @@
                     <div class="d-flex align-items-center flex-nowrap">
                         <div class="logo-sm">
                             <div class="logo d-flex align-items-center justify-content-center">
-                                CSC
+                                E-Lib
                             </div>
                         </div>
                         <div class="logo-text d-flex align-items-center justify-content-center">
-                            CSC
+                            E-Library Uniben
                         </div>
                     </div>
                 </a>
@@ -35,7 +35,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link wave-effect" href="index.php?paper=<?php echo $wordID?>">
                     <span class="icon-holder">
-                        <i class="fas fa-home"></i>
+                        <i class="fa fa-home"></i>
                     </span>
                     <span class="title">Home</span>
                 </a>
@@ -132,7 +132,7 @@
 
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link wave-effect" href="https://waeup.uniben.edu/login">
+                <a class="nav-link wave-effect" target="_blank" href="https://waeup.uniben.edu/login">
                     <span class="icon-holder">
                         <i class="far fa-folder-open"></i>
                     </span>
@@ -140,13 +140,13 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link wave-effect" href="http://localhost/mine/kadu/admin/account/login.php?paper=<?php echo $notwordID?>">
+                <a class="nav-link wave-effect" href="admin/account/login.php?paper=<?php echo $notwordID?>">
                     <span class="icon-holder">
-                        <i class="fas fa-code"></i>
+                        <i class="fa fa-lock"></i>
                     </span>
                     <span class="title">Admin?</span>
                 </a>
-            </li>            
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link wave-effect" href="about.php?paper=<?php echo $wordID?>">
                     <span class="icon-holder">
@@ -155,14 +155,22 @@
                     <span class="title">About</span>
                 </a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link wave-effect" href="article.php?paper=<?php echo $wordID?>">
+                    <span class="icon-holder">
+                        <i class="fa fa-newspaper"></i>
+                    </span>
+                    <span class="title">Upload a Document</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
 
 
 
-
-<div class="">
+<!-- Top Bar -->
+<div class="" style="background-color: #909090;">
     <nav class="navbar navbar-expand navbar-light bg-light">
         <li class="nav-item active">
             <a id="sidebar-toggle" class="sidebar-toggle nav-link" href="#">
@@ -180,7 +188,7 @@
                 <a class="nav-link" href="https://waeup.uniben.edu/login">Kofa Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/mine/kadu/admin/account/login.php?paper=<?php echo $notwordID?>">Admin</a>
+                <a class="nav-link" href="admin/account/login.php?paper=<?php echo $notwordID?>">Admin</a>
             </li>
         </ul>
     </nav>

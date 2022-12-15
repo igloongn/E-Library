@@ -6,11 +6,11 @@
                     <div class="d-flex align-items-center flex-nowrap">
                         <div class="logo-sm">
                             <div class="logo d-flex align-items-center justify-content-center">
-                                CSC
+                                E-Lib
                             </div>
                         </div>
                         <div class="logo-text d-flex align-items-center justify-content-center">
-                            CSC
+                        E-Library Uniben
                         </div>
                     </div>
                 </a>

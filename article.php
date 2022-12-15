@@ -6,7 +6,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>About</title>
+        <title>Upload a Material</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="Shelly - Website">
         <meta name="author" content="merkulove">
@@ -28,13 +28,15 @@
                     $wordID = $_GET['paper'];
                     $word = 'Materials';
                     $notword = 'Past Questions';
-                    $notwordID = '2';
+                    $notwordID = '2';                    
+                    $icon = 'fa fa-pen';
                 }
                 if ($_GET['paper'] == 2) {
                     $wordID = $_GET['paper'];
                     $word = 'Past Questions';
                     $notword = 'Materials';
-                    $notwordID = '1';
+                    $notwordID = '1';                    
+                    $icon = 'fa fa-book';
                 }
             } else{
                 header("location:index.php?paper=1&msg=sorry that page does not exist");
@@ -44,7 +46,7 @@
         <div class="wrapper">
           <?php 
             include 'include/header.php';
-            banner('About Us', 'about',  $_GET['paper']);
+            banner('Upload a Documents', 'upload',  $_GET['paper']);
           ?>
             <div class="container-wide">
 
@@ -59,8 +61,7 @@
                                             <br>
                                             <span>University Of Benin E-Library </span> 
                                         </h2>
-                                        <p class="mw-100">Yohas was born to make academic resources accessible for everyone in the University of Benin.
-And we mean everyone. No matter what faculty or department you’re from, Yohas online library has materials on your course of study.</p>
+                                        <p class="mw-100">Over here you can Upload a document of your choice for approval by the admin</p>
                                         <!-- <a href="allquestions.php" title="" class="btn-default">View All
                                             <i class="fa fa-long-arrow-alt-right"></i>
                                         </a> -->
@@ -74,33 +75,173 @@ And we mean everyone. No matter what faculty or department you’re from, Yohas 
                                     <!--avt-img end-->
                                 </div>
                             </div>
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="avt-img">
-                                        <img src="assets/img/abt2.png" alt="">
-                                    </div>
-                                    <!--avt-img end-->
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="act-inffo">
-                                        <span>ABOUT US</span>
-                                        <h2>Our Mission</h2>
-                                        <p>Trusted by students, lecturers and scholars all over UNIBEN, we’re unlocking the true potential of your academic drive by empowering you with equal access to academic content.</p>
-                                        <ul>
-                                            <li>To build a better method of preventing book loss in the library</li>
-                                            <li>To address the issue of book search delays.</li>
-                                            <li>Help the Liberian operate the library more efficiently</li>
-                                            <li>To reduce the amount of manual work done in the library</li>
-                                            <li>To provide library services with high levels of efficiency.</li>
-                                        </ul>
-                                    </div>
-                                    <!--act-inffo end-->
-                                </div>
-                            </div>
                         </div>
                         <!--abt-page-row end-->
                     </div>
                 </section>
+
+                <!-- Upload your document here -->
+                <div class="newsletter-section">
+                    <div class="container">
+                        <div class="newsletter-sec">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4">
+                                    <div class="newsz-ltr-text">
+                                        <h2>Upload a 
+                                            <br>Document
+                                        </h2>
+                                        <!-- <a id="submit-button" href="#" title="" class="btn-default">
+                                            <button  style="background-color: transparent; color: white;">
+                                                Upload
+                                            <i class="fa fa-long-arrow-alt-right"></i></button>
+                                        </a> -->
+                                    </div>
+                                    <!--newsz-ltr-text end-->
+                                </div>
+                                <div class="col-lg-8">
+                                    <!-- Request A Past Question -->
+                                    <form id="upload-form" action='include/uploadDocument_backend.php' enctype="multipart/form-data" class="newsletter-form" method="POST" >
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input id='fullname' type="text" name="fullname" placeholder="Full Name">
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <input required placeholder="Year of Paper E.g 2000/2001, 2003/2004 "id="year" class="input--style-6" type="text" name="year">
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input id='name' type="text" name="name" placeholder="Course Name">
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input id='code' type="text" name="code" placeholder="Course Code">
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group select-tg">
+                                                    <select id='level' name='level'>
+                                                        <option>Level</option>
+                                                        <option value="1">100</option>
+                                                        <option value="2">200</option>
+                                                        <option value="3">300</option>
+                                                        <option value="4">400</option>
+                                                        <option value="5">500</option>
+                                                        <option value="6">600</option>
+                                                    </select>
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>     
+                                            <div class="col-md-4">
+                                                <div class="form-group select-tg">
+                                                    <select id='faculty' name='faculty'>
+                                                        <option>Faculty</option>
+                                                        <?php
+                                                            $query = "SELECT * from faculty";
+                                                            $result = mysqli_query($conn, $query);
+                                                            while ($row = mysqli_fetch_array($result)){
+                                                                $name = $row['name'];
+                                                        ?>
+                                                            <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group select-tg">
+                                                    <select id='dept' name='dept'>
+                                                        <option>Dept</option>
+                                                        <?php
+                                                            $query = "SELECT * from dept";
+                                                            $result = mysqli_query($conn, $query);
+                                                            while ($row = mysqli_fetch_array($result)){
+                                                                $name = $row['name'];
+                                                        ?>
+                                                            <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <select id='paper' name='paper'>
+                                                        <option>Type</option>
+                                                        <?php 
+                                                            $pquery = "SELECT * from paper";
+                                                            $presult = mysqli_query($conn, $pquery);
+                                                            if (!$presult) {
+                                                                die('Error in Query '. mysqli_error($conn) );
+                                                            }
+                                                            while ($row = mysqli_fetch_array($presult)) {
+                                                                $id = $row['id'];
+                                                                $name = $row['name'];
+                                                        ?>
+                                                                <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <!--form-group end-->
+                                            </div>
+                                            <br>
+                                            <br>
+
+                                            <!-- PDF Image -->
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label for="">Picture:</label>
+                                                    <input type="file" name="post_img" id="post_img" accept="image/*">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <!-- PDF Document -->
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <label for="">Document:</label>
+                                                    <input type="file" name="pdf" id="fileToUpload">
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <br>
+                                            <br>
+                                        <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                                            <!-- <div id="submit-button"> -->
+                                                <button class="btn-default" style="background-color: transparent; color: white;" type="submit" >
+                                                    Upload
+                                                <i class="fa fa-long-arrow-alt-right"></i></button>
+                                            <!-- </div> -->
+                                        </div>
+                                    </form>
+                                    <!--newsletter-form end-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--newsletter-sec end-->
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <!--about-page-content end-->
                 <section class="benifit-section">
                     <div class="container">

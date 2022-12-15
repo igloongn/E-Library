@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php 
     include '../backend/db.php';
-    $_SESSION['user'] ="Mufasa";
-    $user = $_SESSION['user'];
+    // print_r($_SESSION);
+    include 'include/auth.php';
 
 ?>
 <html lang="en">
@@ -562,8 +562,8 @@
                         <div class="tab-pane fade dashboard-profile dashboard" id="profile">
                             <div class="box-head">
                                 <h3>Profile</h3>
-                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                    data-bs-target="#resetEmail">Edit</a>
+                                <!-- <a href="javascript:void(0)" data-bs-toggle="modal"
+                                    data-bs-target="#resetEmail">Edit</a> -->
                             </div>
                             <ul class="dash-profile">
                                 <li>
@@ -634,7 +634,7 @@
                                         <h6 class="font-light">Zip</h6>
                                     </div>
                                     <div class="right">
-                                        <h6>60515</h6>
+                                        <h6>300302;</h6>
                                     </div>
                                 </li>
                             </ul>

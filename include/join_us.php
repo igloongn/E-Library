@@ -41,17 +41,13 @@
                             <div class="col-md-4">
                                 <div class="form-group select-tg">
                                     <select id='level'>
-                                        <option>Select</option>
-                                        <?php
-                                            $opquery = "SELECT * from level";
-                                            $opresult = mysqli_query($conn, $opquery);
-                                            while ($row = mysqli_fetch_array($opresult)){
-                                                $name = $row['name'];
-                                        ?>
-                                            <option><?php echo $name; ?></option>
-                                        <?php
-                                            }
-                                        ?>
+                                        <option>Level</option>
+                                        <option>100</option>
+                                        <option>200</option>
+                                        <option>300</option>
+                                        <option>400</option>
+                                        <option>500</option>
+                                        <option>600</option>
                                     </select>
                                 </div>
                                 <!--form-group end-->
@@ -59,7 +55,7 @@
                             <div class="col-md-4">
                                 <div class="form-group select-tg">
                                     <select id='dept'>
-                                        <option>Select</option>
+                                        <option>Dept</option>
                                         <?php
                                             $query = "SELECT * from dept";
                                             $result = mysqli_query($conn, $query);
